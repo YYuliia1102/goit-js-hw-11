@@ -8,13 +8,21 @@
   </head>
   <body>
     <div class="d7">
-      <form class="search">
-        <input type="text" placeholder="Search images..." id="search-box">
+      <form class="search" id="search-box">
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
         <button type="submit"></button>
       </form>
     </div>
-    <ul class="images-list"></ul>
-    <div class="images-info"></div>
+    <div class="gallery">
+      <!-- Картки зображень -->
+    </div>
+    <button type="button" class="load-more">Load more</button>
+    
     <script src="index.js" type="module"></script>
   </body>
 </html>
