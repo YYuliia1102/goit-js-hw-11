@@ -82,14 +82,14 @@ form {
   background: none;
   border: none;
   position: absolute;
-  top: -2px;
   right: 0;
 }
 .d7 button:before {
-  content: "\f105";
+  content: "\f002";
   font-family: FontAwesome;
   color: #324b4e;
 }
+
 .gallery{
   flex-wrap: wrap;
   gap: 20px;
