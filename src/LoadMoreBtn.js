@@ -5,10 +5,7 @@ export default class LoadMoreBtn {
 
     constructor({ selector, isHidden = false }) {
         this.button = this.getButton(selector);
-        // if (isHidden) this.hide();
         isHidden && this.hide();
-        // isHidden = true && this.hide(); -> true && true -> this.hide();
-        // isHidden = false && this.hide(); -> false && true -> false
     }
 
     getButton(selector) {
@@ -35,6 +32,6 @@ export default class LoadMoreBtn {
 
     end() {
         this.button.disabled = true;
-        this.button.textContent = "The end!";
+        this.button.textContent = Notiflix.Notify.warning ('We are sorry, but you have reached the end of search results');
     }
 }

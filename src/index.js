@@ -2,6 +2,8 @@ import './css/styles.css';
 import ImagesService from './ImagesService';
 import LoadMoreBtn from './LoadMoreBtn';
 
+import Notiflix from 'notiflix'
+
 const refs = {
     form: document.querySelector("#search-box"),
     gallery: document.querySelector(".gallery"),
@@ -23,7 +25,9 @@ function onSubmit(event) {
     const value = document.querySelector("[name=searchQuery]").value.trim();
 
 
-    if (value === "") alert("No value!");
+    if (value === "") {
+        Notiflix.Notify.warning('Please enter your request')
+    }
     else {
         imgsService.searchQuery = value;
         imgsService.resetPage();
@@ -68,7 +72,7 @@ async function getArticlesMarkup() {
     }
 }
 function createMarkup({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) {
-    console.log(largeImageURL);
+    // console.log(largeImageURL);
     return `
         <div class="photo-card">
   <img src="${webformatURL}" alt="${tags}" loading="lazy" />
@@ -100,5 +104,5 @@ function clearNewsList() {
 function onError(err) {
     console.error(err);
     loadMoreBtn.hide();
-    refs.gallery.innerHTML = "<p>Not found!</p>";
+    refs.gallery.innerHTML = Notiflix.Notify.warning('Sorry, there are no images matching your search query. Please try again.');
 }
